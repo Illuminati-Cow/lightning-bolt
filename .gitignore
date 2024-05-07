@@ -1,15 +1,51 @@
-# Godot 4+ specific ignores
-.godot/
+# Ignore all files by default, but scan all directories.
+*
+!*/
 
-# Godot-specific ignores
-.import/
-export.cfg
-export_presets.cfg
+# Do not ignore git files in the root of the repo.
+!/.git*
 
-# Imported translations (automatically generated from CSV files)
-*.translation
+# Do not ignore current project's `.uproject`.
+!/*.uproject
 
-# Mono-specific ignores
-.mono/
-data_*/
-mono_crash.*.json
+# Do not ignore source, config and plugins dirs.
+!/Source/**
+!/Config/**
+!/Plugins/**
+
+# Only allow .uasset and .umap files from /Content dir.
+# They're tracked by git-lfs, don't forget to track other
+# files if adding them here.
+!/Content/**/*.uasset
+!/Content/**/*.umap
+
+# Allow any files from /RawContent dir.
+# Any file in /RawContent dir will be managed by git lfs.
+!/RawContent/**/*
+
+# OS/platform generated files.
+
+# Windows
+ehthumbs.db
+Thumbs.db
+
+# Mac OS X
+.DS_Store
+.DS_Store?
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+
+# vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# Visual Studio
+.vs
